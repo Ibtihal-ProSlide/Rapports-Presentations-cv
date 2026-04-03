@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Présentations & CV Pro – Service Rapide</title>
+  <meta name="description" content="Service pro dyal présentations, rapports w CV – nadi, n9i w professionel" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+
+  <style>
+    /* ===========================
+       CSS VARIABLES & RESET
+    =========================== */
+    :root {
+      --primary: #6C63FF;
+      --primary-dark: #5a52d5;
+      --primary-light: #ede9ff;
+      --secondary: #FF6584;
+      --accent: #43D9AD;
+      --dark: #1a1a2e;
+      --dark-2: #16213e;
+      --text: #2d2d2d;
+      --text-light: #666;
+      --white: #ffffff;
+      --bg: #f8f7ff;
+      --card-bg: #ffffff;
+      --border: #e8e5ff;
+      --shadow: 0 8px 32px rgba(108, 99, 255, 0.12);
+      --shadow-hover: 0 16px 48px rgba(108, 99, 255, 0.22);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --wa-green: #25D366;
+      --wa-dark: #128C7E;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Poppins', 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===========================
+       SCROLLBAR
+    =========================== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(108,99,255,0.1);
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo i {
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 28px;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-wa-btn {
+      background: var(--wa-green);
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-wa-btn:hover {
+      background: var(--wa-dark) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-wa-btn::after {
+      display: none !important;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    @media (min-width: 768px) {
+      .hamburger { display: none; }
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 8px 24px rgba(108,99,255,0.12);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .mobile-menu a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .mobile-menu .mob-wa {
+      background: var(--wa-green);
+      color: white !important;
+      text-align: center;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* ===========================
+       SECTIONS GENERAL
+    =========================== */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ===========================
+       HERO SECTION
+    =========================== */
+    .hero {
+      min-height: 100vh;
+      padding-top: 80px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #f8f7ff 0%, #ede9ff 40%, #fff0f5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,101,132,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner {
+        flex-direction: row;
+        text-align: left;
+        gap: 60px;
+      }
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      display: block;
+      animation: wave 2s infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    @media (min-width: 900px) {
+      .hero-desc { margin-left: 0; }
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-btns { justify-content: flex-start; }
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(108,99,255,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(108,99,255,0.4);
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--wa-green), #1ebe5b);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37,211,102,0.4);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--primary);
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-stats { justify-content: flex-start; }
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card-stack {
+      position: relative;
+      width: 280px;
+      height: 280px;
+    }
+
+    @media (min-width: 500px) {
+      .hero-card-stack { width: 320px; height: 320px; }
+    }
+
+    .floating-card {
+      position: absolute;
+      background: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark);
+      animation: float-up 3s ease-in-out infinite;
+      border: 1px solid var(--border);
+    }
+
+    .floating-card:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+    .floating-card:nth-child(2) { bottom: 60px; left: 0; animation-delay: 0.5s; }
+    .floating-card:nth-child(3) { bottom: 0; right: 0; animation-delay: 1s; }
+    .floating-card:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: 1.5s; }
+
+    @keyframes float-up {
+      0%, 100% { transform: translateY(0) translateX(var(--tx, 0)); }
+      50% { transform: translateY(-8px) translateX(var(--tx, 0)); }
+    }
+
+    .floating-card:nth-child(1) { --tx: -50%; }
+
+    .fc-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       SERVICES SECTION
+    =========================== */
+    #services {
+      background: white;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 500px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: var(--transition);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: var(--transition);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary-light);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .service-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .service-desc {
+      font-size: 0.87rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .service-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--wa-green);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .service-btn:hover {
+      background: var(--wa-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ===========================
+       HOW IT WORKS
+    =========================== */
+    #how-it-works {
+      background: linear-gradient(135deg, #f8f7ff 0%, #ede9ff 100%);
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .steps {
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+
+    .step {
+      flex: 1;
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .step-connector {
+        display: flex;
+        align-items: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+        opacity: 0.4;
+        margin-top: 28px;
+      }
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 6px 20px rgba(108,99,255,0.3);
+    }
+
+    .step-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 0.87rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ===========================
+       PORTFOLIO / KHDEMTI
+    =========================== */
+    #portfolio {
+      background: white;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 500px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .portfolio-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      aspect-ratio: 4/3;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-visual {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+    }
+/* ===========================
+   PORTFOLIO IMAGES
+=========================== */
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.portfolio-card:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+.portfolio-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  background: var(--bg);
+}
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(108,99,255,0.88);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+      color: white;
+      gap: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .portfolio-overlay-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .portfolio-overlay-desc {
+      font-size: 0.82rem;
+      opacity: 0.88;
+    }
+
+    .portfolio-overlay a {
+      background: white;
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .portfolio-overlay a:hover {
+      background: var(--primary-light);
+    }
+
+    .portfolio-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 18px;
+      background: linear-gradient(0deg, rgba(26,26,46,0.85) 0%, transparent 100%);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ===========================
+       WHY CHOOSE ME
+    =========================== */
+    #why-me {
+      background: var(--bg);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 600px) {
+      .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .reasons-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .reason-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 18px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .reason-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary-light);
+    }
+
+    .reason-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .reason-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .reason-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       TESTIMONIALS
+    =========================== */
+    #testimonials {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+      color: white;
+    }
+
+    #testimonials .section-title {
+      color: white;
+    }
+
+    #testimonials .section-sub {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 600px) {
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+    }
+
+    .stars {
+      color: #FFD700;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .author-role {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ===========================
+       CTA SECTION
+    =========================== */
+    #cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    #cta .section-title {
+      color: white;
+      font-size: 2rem;
+    }
+
+    #cta .section-sub {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      color: var(--primary);
+      padding: 18px 36px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .cta-btn i {
+      font-size: 1.3rem;
+      color: var(--wa-green);
+    }
+
+    .cta-note {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      margin-top: 16px;
+    }
+
+    /* ===========================
+       FLOATING WHATSAPP BUTTON
+    =========================== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .wa-float-btn {
+      width: 60px;
+      height: 60px;
+      background: var(--wa-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+      transition: var(--transition);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .wa-float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.55);
+    }
+
+    .wa-pulse {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--wa-green);
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    .wa-tooltip {
+      background: var(--dark);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .wa-float:hover .wa-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ===========================
+       REVEAL ANIMATIONS
+    =========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===========================
+       UTILITY
+    =========================== */
+    .text-center { text-align: center; }
+    .mt-4 { margin-top: 16px; }
+    .mb-2 { margin-bottom: 8px; }
+
+    /* ===========================
+       COLOR PRESETS
+    =========================== */
+    .c-purple  { background: linear-gradient(135deg, #6C63FF22, #6C63FF11); color: var(--primary); }
+    .c-pink    { background: linear-gradient(135deg, #FF658422, #FF658411); color: var(--secondary); }
+    .c-green   { background: linear-gradient(135deg, #43D9AD22, #43D9AD11); color: var(--accent); }
+    .c-orange  { background: linear-gradient(135deg, #FF8C5A22, #FF8C5A11); color: #FF8C5A; }
+    .c-blue    { background: linear-gradient(135deg, #3B82F622, #3B82F611); color: #3B82F6; }
+    .c-yellow  { background: linear-gradient(135deg, #F59E0B22, #F59E0B11); color: #F59E0B; }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVBAR
+  =========================== -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="logo">
+      <i class="fas fa-layer-group"></i>
+      <span>Ibtihal-ProSlide.ma</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">Kifach?</a></li>
+      <li><a href="#portfolio">Khdemti</a></li>
+      <li><a href="#why-me">3lach ana</a></li>
+      <li>
+        <a href="#" class="nav-wa-btn" id="nav-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobileMenu()">🎨 Services</a>
+    <a href="#how-it-works" onclick="closeMobileMenu()">🔄 Kifach khdama</a>
+    <a href="#portfolio" onclick="closeMobileMenu()">💼 Khdemti</a>
+    <a href="#why-me" onclick="closeMobileMenu()">⭐ 3lach ana</a>
+    <a href="#" class="mob-wa" id="mob-wa-btAn" onclick="closeMobileMenu()">
+      <i class="fab fa-whatsapp"></i> Tsel bia f WhatsApp
+    </a>
+  </div>
+
+  <!-- ===========================
+       HERO SECTION
+  =========================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-text">
+          <span class="badge">✨ Service Pro – Moroccan Edition</span>
+          <span class="hero-emoji">👋</span>
+          <h1>
+            Kan9ad <br />
+            <span class="highlight">Présentations</span>, <span class="highlight">Rapports</span> (All types)<br />
+            w <span class="highlight">CV Pro</span> <br />
+ w b <span class="highlight">Atmina Mounassiba👌🏻</span>
+          </h1>
+          <p class="hero-desc">
+            Service sri3, n9i w Pro – bach tban <strong>professionnel</strong> 🔥<br />
+            Siftli message w Ghansayboulik b qualite nadyia.
+          </p>
+          <div class="hero-btns">
+            <a href="#" class="btn-wa hero-wa-btn" id="heroWaBtn">
+              <i class="fab fa-whatsapp"></i>
+              Tassel bia f WhatsApp
+            </a>
+            <a href="#services" class="btn-outline">
+              <i class="fas fa-th-large"></i>
+              Khtar Services limnassbek
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num">100+</div>
+              <div class="stat-label">Students/Professionals Satisfied</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">24h</div>
+              <div class="stat-label">Delivery time</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">⭐5</div>
+              <div class="stat-label">Rating dyali</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="floating-card c-purple">
+              <div class="fc-icon c-purple"><i class="fas fa-file-powerpoint"></i></div>
+              <div>
+                <div style="font-size:0.7rem;opacity:0.6">Slides pro</div>
+                <div>Présentation PPT</div>
+              </div>
+            </div>
+            <div class="floating-card c-pink">
+              <div class="fc-icon c-pink"><i class="fas fa-id-card"></i></div>
+              <div>
+                <div style="font-size:0.7rem;opacity:0.6"> Professionel & claire</div>
+                <div>CV Pro</div>
+              </div>
+            </div>
+            <div class="floating-card c-green">
+              <div class="fc-icon c-green"><i class="fas fa-file-alt"></i></div>
+              <div>
+                <div style="font-size:0.7rem;opacity:0.6">de qualite w professionel</div>
+                <div>Rapport de stage</div>
+              </div>
+            </div>
+            <div class="floating-card c-orange">
+              <div class="fc-icon c-orange"><i class="fas fa-check-circle"></i></div>
+              <div>
+                <div style="font-size:0.7rem;opacity:0.6">✅ Livré</div>
+                <div>Rapid w Nadi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SERVICES SECTION
+  =========================== -->
+  <section id="services">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge">🎨 Chnou kandir</span>
+        <h2 class="section-title">Services dyali</h2>
+        <p class="section-sub">Khtar service libghity, wgless rta7😌</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon c-purple">
+            <i class="fas fa-file-powerpoint"></i>
+          </div>
+          <div class="service-name">🎯 Présentations (PPT)</div>
+          <div class="service-desc">
+            Slides mratbin, pro w Claire – bach presentation dyalk tban De Qualite w professional
+          </div>
+          <a href="#" class="service-btn" data-service="Présentation PPT">
+            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          </a>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon c-green">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="service-name">📋 Rapport de stage</div>
+          <div class="service-desc">
+            Mktoub mzyan w organisé – Kaywsslk rapport complet fih ga3 detail lighatjblik la note wzid lfou9😉.
+          </div>
+          <a href="#" class="service-btn" data-service="Rapport de stage">
+            <i class="fab fa-whatsapp"></i> Bghit had service
+          </a>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon c-blue">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="service-name">📄 Rapports (tous les types)</div>
+          <div class="service-desc">
+            Ay type dyal rapport li bghiti – technique, recherche, PFE wela ghiro
+          </div>
+          <a href="#" class="service-btn" data-service="Rapport">
+            <i class="fab fa-whatsapp"></i> Bghit had service
+          </a>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon c-orange">
+            <i class="fas fa-tv"></i>
+          </div>
+          <div class="service-name">🖥️ Presentation De Rapport De Stage PPT</div>
+          <div class="service-desc">
+            kanssayb l présentation dyal soutenance bach tjik sahla w clear, w tdewz soutenance dyalk wnta mrta7 wtay9 frask 😎.
+          </div>
+          <a href="#" class="service-btn" data-service="Slides dyal Rapport">
+            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          </a>
+        </div>
+
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon c-pink">
+            <i class="fas fa-id-card"></i>
+          </div>
+          <div class="service-name">📌 CV Pro</div>
+          <div class="service-desc">
+            CV li pro w kayjib les offres de travail – design n9i likay khli bonne impression 3nd les recruteurs👀
+          </div>
+          <a href="#" class="service-btn" data-service="CV Pro">
+            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          </a>
+        </div>
+
+        <div class="service-card reveal reveal-delay-5">
+          <div class="service-icon c-yellow">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="service-name">🎁 Pack Complet</div>
+          <div class="service-desc">
+            Rapport + Slides + CV – kolchi f wa7ed – prix mzyan w delivery sri3a, twsslk 9bel lwe9t.
+          </div>
+          <a href="#" class="service-btn" data-service="Pack Complet">
+            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       HOW IT WORKS
+  =========================== -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge">🔄 Kifach nrbe7 had service?</span>
+        <h2 class="section-title">3 Steps w khdma dyalk n9ia</h2>
+        <p class="section-sub">Simple, De qualite w bla t3qid 😎</p>
+      </div>
+
+      <div class="steps">
+
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <div class="step-icon">📱</div>
+          <div class="step-title">siftili Message</div>
+          <div class="step-desc">
+            Clicki 3la bouton WhatsApp w siftili chno type dyal service libghity, deadline + detail
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">2</div>
+          <div class="step-icon">💻</div>
+          <div class="step-title">Kankhdm 3la Talab Dyalk</div>
+          <div class="step-desc">
+            Kan9adlik travail dyalk kima bghity – design pro, n9i w Nady – katwsslek notification bli travail daylk wajed (Photos + Video), katdwez lia vierement banquaire🪙💳, wkaywwslek travail dyalk nadi canadi 👌🏻😉
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <div class="step reveal reveal-delay-4">
+          <div class="step-num">3</div>
+          <div class="step-icon">✅</div>
+          <div class="step-title">kat verifier travail dyalk, wkaysiftlia la kant chi modification bghity tzidha</div>
+          <div class="step-desc">
+            Kansifto lik ready to use – bach tban professionnel wbla ma t3db rask
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-4" style="margin-top:40px">
+        <a href="#" class="btn-wa" id="howWaBtn">
+          <i class="fab fa-whatsapp"></i> Bda daba✅. Hni rask, w siftili Message 🤳🏼
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       PORTFOLIO
+  =========================== -->
+ <!-- ===========================
+     PORTFOLIO / KHDEMTI
+=========================== -->
+<section id="portfolio">
+  <div class="container">
+    <div class="text-center">
+      <span class="badge">💼 Khdemti</span>
+      <h2 class="section-title">Chno kandir</h2>
+      <p class="section-sub">Kolchi Nadi, Khedma n9ia w Pro 👌</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Service 1: Présentation PPT -->
+      <div class="portfolio-card reveal">
+        <img 
+          src="1.jpg" 
+          alt="Exemple Présentation PowerPoint Pro" 
+          class="portfolio-image"
+          loading="lazy"
+        >
+        <div class="portfolio-label">Présentation Corporative</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-title">PPT Pro – 25 Slides</div>
+          <div class="portfolio-overlay-desc">Design n9i, colors elegant, animations Nadya</div>
+          <a href="#" data-service="Présentation PPT">bghit had service</a>
+        </div>
+      </div>
+
+      <!-- Service 2: CV Pro -->
+      <div class="portfolio-card reveal reveal-delay-1">
+        <img 
+          src="2.png" 
+          alt="Exemple CV Professionnel Moderne" 
+          class="portfolio-image"
+          loading="lazy"
+        >
+        <div class="portfolio-label">CV Pro – Modern Style</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-title">CV Pro Design</div>
+          <div class="portfolio-overlay-desc">Clean, modern w professional</div>
+          <a href="#" data-service="CV Pro">bghit had service</a>
+        </div>
+      </div>
+
+      <!-- Service 3: Rapport de Stage -->
+      <div class="portfolio-card reveal reveal-delay-2">
+        <img 
+          src="3.png" 
+          alt="Exemple Rapport de Stage Complet" 
+          class="portfolio-image"
+          loading="lazy"
+        >
+        <div class="portfolio-label">Rapport de Stage</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-title">Rapport Complet</div>
+          <div class="portfolio-overlay-desc">Organisé, clair w structuré</div>
+          <a href="#" data-service="Rapport de stage">bghit had service</a>
+        </div>
+      </div>
+
+      <!-- Service 4: Slides Soutenance -->
+      <div class="portfolio-card reveal reveal-delay-3">
+        <img 
+          src="4.png" 
+          alt="Exemple Présentation Soutenance PFE" 
+          class="portfolio-image"
+          loading="lazy"
+        >
+        <div class="portfolio-label">Slides Soutenance</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-title">Slides Soutenance PFE</div>
+          <div class="portfolio-overlay-desc">Mn rapport l Presentation slides PPT – pro w Qualite</div>
+          <a href="#" data-service="Presentation dyal Rapport">bghit had service</a>
+        </div>
+      </div>
+
+      <!-- Service 5: Data Viz -->
+      <div class="portfolio-card reveal reveal-delay-4">
+        <img 
+          src="5.png" 
+          alt="Exemple Présentation avec Graphiques" 
+          class="portfolio-image"
+          loading="lazy"
+        >
+        <div class="portfolio-label">Présentation Data</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-title">Data Viz Slides</div>
+          <div class="portfolio-overlay-desc">Charts, graphs w infographics – Qualite Wa3ra</div>
+          <a href="#" data-service="Présentation PPT">bghit had service</a>
+        </div>
+      </div>
+
+      <!-- Service 6: Pack Complet -->
+      <div class="portfolio-card reveal reveal-delay-5">
+        <img 
+          src="6.jpg" 
+          alt="Exemple Pack Complet CV + Rapport + Slides" 
+          class="portfolio-image"
+          loading="lazy"
+        >
+        <div class="portfolio-label">Pack Complet</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-title">Pack: CV + Rapport + Slides</div>
+          <div class="portfolio-overlay-desc">Kolchi f wa7ed – ready to go 🔥</div>
+          <a href="#" data-service="Pack Complet">Bghit Pack</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===========================
+       WHY ME
+  =========================== -->
+  <section id="why-me">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge">⭐ 3lach ana</span>
+        <h2 class="section-title">3lach Service Dyali?</h2>
+        <p class="section-sub"> 😉😌 </p>
+      </div>
+
+      <div class="reasons-grid">
+        <div class="reason-card reveal">
+          <span class="reason-icon">⚡</span>
+          <div class="reason-title">Sour3a fl2ada2</div>
+          <div class="reason-desc">24h wela 9bel – ndelivri 9bel deadline dyalk</div>
+        </div>
+        <div class="reason-card reveal reveal-delay-1">
+          <span class="reason-icon">🎨</span>
+          <div class="reason-title">Design N9i w Pro</div>
+          <div class="reason-desc">Aybanlik wach pro wla la mn db</div>
+        </div>
+        <div class="reason-card reveal reveal-delay-2">
+          <span class="reason-icon">🎯</span>
+          <div class="reason-title">3la 9d Talab Dyalk</div>
+          <div class="reason-desc">Kankhdam 3la need dyalk b skills w la creativite dyali 😉</div>
+        </div>
+        <div class="reason-card reveal reveal-delay-3">
+          <span class="reason-icon">💬</span>
+          <div class="reason-title">Communication + Processu Sahla</div>
+          <div class="reason-desc">  Via Whatsapp 📲</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       TESTIMONIALS
+  =========================== -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge" style="background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9)">💬 Chno 9alo</span>
+        <h2 class="section-title"> L3rboun Ban mn lClients fr7an </h2>
+        <p class="section-sub">lqualite bayna, Bla mandwi ana 😄</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">
+            "la la nadii! Rapport de stage waa3rrr bzzzzzzzzzffffff, Les formateurs dyawli 3jbhoouuum bzzf wchkrouunnii 0daam les stagiares. Rapport 3la 9edou mkhdoum fnhar wtl3 naaaddii – merci bzzaf! <<<<<3"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #6C63FF22, #6C63FF44); font-size: 1.3rem;">👩</div>
+            <div>
+              <div class="author-name">Zineb M.</div>
+              <div class="author-role">Étudiante BTS – Casablanca</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">
+            "Kan 3ndi Cv mkhrb9 W mawad7ch, wmakayrdouch 3lia les offres likaansiftlihoum, tho hmdoulah daba wlaw kaywsslouni 3, 4 f simana we7da. Khadma pro bzaf w flmoustawa!"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #FF658422, #FF658444); font-size: 1.3rem;">👨</div>
+            <div>
+              <div class="author-name">Karim T.</div>
+              <div class="author-role">Fresh Graduate – Rabat</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">
+            "Présentation dyal soutenance PFE jat nadya w proo – professeurs 3jbhom design, wlhmdoulah wsslni flw9t!"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #43D9AD22, #43D9AD44); font-size: 1.3rem;">👩‍🎓</div>
+            <div>
+              <div class="author-name">Sara B.</div>
+              <div class="author-role">Étudiante Master – Marrakech</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CTA SECTION
+  =========================== -->
+  <section id="cta">
+    <div class="container">
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:white;margin-bottom:20px">🔥 Bda daba</span>
+      <h2 class="section-title">
+        B message wa7ed<br />sift wgless rta7, ywsslk travail nadi 🚀
+      </h2>
+      <p class="section-sub">
+        Wach m7taj chi présentation wela Rapport pro?<br />
+        I got you ;"), click button whatssap wthena 😉
+      </p>
+      <a href="#" class="cta-btn" id="ctaWaBtn">
+        <i class="fab fa-whatsapp"></i>
+        khli message db f WhatsApp
+      </a>
+      <div class="cta-note">
+        ⚡ Response f a9al mn 5 min • 💯 Satisfaction mdmouna
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer>
+    <p>© 2026 <strong style="color:var(--primary)">Ibtihal-Ibtihal-ProSlide.ma</strong> – Kolchi pro, n9i w naaaadyyy ✨</p>
+    <p style="margin-top:8px">Created with ❤️ 🇲🇦</p>
+  </footer>
+
+  <!-- ===========================
+       FLOATING WHATSAPP BUTTON
+  =========================== -->
+  <div class="wa-float">
+    <div class="wa-tooltip">Matkhemech, siftli message daba 👋</div>
+    <a href="#" class="wa-float-btn" id="floatWaBtn" aria-label="WhatsApp">
+      <div class="wa-pulse"></div>
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ===========================
+       JAVASCRIPT
+  =========================== -->
+  <script>
+    // ============================
+    // CONFIGURATION – CHANGE THIS
+    // ============================
+    const PHONE_NUMBER = "212703920799"; // ← Sift lik numero dyalk hna (bla +)
+    const DEFAULT_MESSAGE = "Salam! Bghitk tssayb lia wa7ed Travail 🙏";
+
+    // ============================
+    // WHATSAPP URL GENERATOR
+    // ============================
+    function buildWaUrl(service = null) {
+      let msg = service
+        ? `Salam, bghit service dyal ${service} 🙏 W9tach ywjed?`
+        : DEFAULT_MESSAGE;
+      return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`;
+    }
+
+    // ============================
+    // BIND ALL WA BUTTONS
+    // ============================
+    function bindWaButtons() {
+      // Service cards buttons
+      document.querySelectorAll('[data-service]').forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          const service = el.getAttribute('data-service');
+          window.open(buildWaUrl(service), '_blank');
+        });
+      });
+
+      // Named buttons
+      const namedBtns = {
+        'heroWaBtn': null,
+        'howWaBtn': null,
+        'ctaWaBtn': null,
+        'floatWaBtn': null,
+        'nav-wa': null,
+        'mob-wa-btn': null,
+      };
+
+      Object.keys(namedBtns).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', e => {
+            e.preventDefault();
+            window.open(buildWaUrl(namedBtns[id]), '_blank');
+          });
+        }
+      });
+    }
+
+    // ============================
+    // NAVBAR SCROLL EFFECT
+    // ============================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ============================
+    // HAMBURGER MENU
+    // ============================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // ============================
+    // REVEAL ON SCROLL
+    // ============================
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ============================
+    // ACTIVE NAV LINK
+    // ============================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksList = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinksList.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === `#${current}`) {
+          link.style.color = 'var(--primary)';
+        }
+      });
+    });
+
+    // ============================
+    // INIT
+    // ============================
+    bindWaButtons();
+  </script>
+
+</body>
+</html>
