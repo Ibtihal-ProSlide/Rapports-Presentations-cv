@@ -39,6 +39,11 @@
       --wa-green: #25D366;
       --wa-dark: #128C7E;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      /* Pricing Variables */
+      --price-basic: #95a5a6;
+      --price-standard: #3498db;
+      --price-premium: #9b59b6;
+      --price-highlight: #e74c3c;
     }
 
     *, *::before, *::after {
@@ -658,6 +663,318 @@
     }
 
     /* ===========================
+       PRICING SECTION (NEW)
+    =========================== */
+    #pricing {
+      background: linear-gradient(135deg, #f8f7ff 0%, #ede9ff 100%);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .pricing-badge {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    .student-discount {
+      background: var(--wa-green);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary-light);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--price-standard);
+      background: linear-gradient(135deg, #f8fbff, #f0f7ff);
+    }
+
+    .pricing-card.featured::before {
+      content: '⭐ Most Popular';
+      position: absolute;
+      top: 12px;
+      right: -35px;
+      background: var(--price-standard);
+      color: white;
+      padding: 4px 40px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-card-header {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .pricing-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .pricing-card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .pricing-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pricing-tier {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pricing-tier:hover {
+      border-color: var(--primary);
+      transform: scale(1.02);
+    }
+
+    .pricing-tier.standard {
+      border-color: var(--price-standard);
+      background: linear-gradient(135deg, #f8fbff, #e8f4fd);
+    }
+
+    .pricing-tier-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .pricing-tier-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 4px 0;
+    }
+
+    .pricing-tier-price small {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .pricing-tier-old {
+      text-decoration: line-through;
+      color: var(--text-light);
+      margin-left: 6px;
+    }
+
+    .pricing-tier-save {
+      color: var(--price-highlight);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 4px 0 12px 0;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .pricing-features li {
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .pricing-btn {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: none;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      margin-top: 8px;
+      cursor: pointer;
+    }
+
+    .pricing-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .pricing-btn.primary {
+      background: var(--price-standard);
+      color: white;
+    }
+
+    .pricing-btn.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .pricing-btn.whatsapp {
+      background: var(--wa-green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .pricing-btn.whatsapp:hover {
+      background: var(--wa-dark);
+    }
+
+    .pricing-note {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Pack Complet Highlight */
+    .pricing-card.pack-highlight {
+      grid-column: 1 / -1;
+      border: 3px solid var(--price-highlight);
+      background: linear-gradient(135deg, #fff5f5, #fff);
+      position: relative;
+    }
+
+    .pricing-card.pack-highlight::after {
+      content: '🔥 Best Value - Save 20%';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--price-highlight);
+      color: white;
+      padding: 4px 20px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      animation: pulse 2s infinite;
+    }
+
+    .pack-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+      text-align: left;
+    }
+
+    @media (max-width: 600px) {
+      .pack-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pack-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .pack-feature::before {
+      content: '✨';
+      font-size: 1rem;
+    }
+
+    .pack-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--price-highlight);
+      margin: 8px 0;
+    }
+
+    .pack-price small {
+      font-size: 1rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+
+    /* ===========================
        HOW IT WORKS
     =========================== */
     #how-it-works {
@@ -781,6 +1098,18 @@
       opacity: 1;
     }
 
+    .portfolio-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .portfolio-card:hover .portfolio-image {
+      transform: scale(1.05);
+    }
+
     .portfolio-visual {
       width: 100%;
       height: 100%;
@@ -789,32 +1118,9 @@
       justify-content: center;
       font-size: 3rem;
       position: relative;
+      background: var(--bg);
     }
-/* ===========================
-   PORTFOLIO IMAGES
-=========================== */
-.portfolio-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: var(--transition);
-}
 
-.portfolio-card:hover .portfolio-image {
-  transform: scale(1.05);
-}
-
-.portfolio-visual {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  position: relative;
-  background: var(--bg);
-}
     .portfolio-overlay {
       position: absolute;
       inset: 0;
@@ -1197,6 +1503,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing 💰</a></li>
       <li><a href="#how-it-works">Kifach?</a></li>
       <li><a href="#portfolio">Khdemti</a></li>
       <li><a href="#why-me">3lach ana</a></li>
@@ -1214,6 +1521,7 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services" onclick="closeMobileMenu()">🎨 Services</a>
+    <a href="#pricing" onclick="closeMobileMenu()">💰 Pricing</a>
     <a href="#how-it-works" onclick="closeMobileMenu()">🔄 Kifach khdama</a>
     <a href="#portfolio" onclick="closeMobileMenu()">💼 Khdemti</a>
     <a href="#why-me" onclick="closeMobileMenu()">⭐ 3lach ana</a>
@@ -1247,9 +1555,9 @@
               <i class="fab fa-whatsapp"></i>
               Tassel bia f WhatsApp
             </a>
-            <a href="#services" class="btn-outline">
-              <i class="fas fa-th-large"></i>
-              Khtar Services limnassbek
+            <a href="#pricing" class="btn-outline">
+              <i class="fas fa-tag"></i>
+              Chouf Pricing 👀
             </a>
           </div>
           <div class="hero-stats">
@@ -1326,8 +1634,8 @@
           <div class="service-desc">
             Slides mratbin, pro w Claire – bach presentation dyalk tban De Qualite w professional
           </div>
-          <a href="#" class="service-btn" data-service="Présentation PPT">
-            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          <a href="#pricing" class="service-btn" data-service="Présentation PPT">
+            <i class="fas fa-tag"></i> Voir les prix
           </a>
         </div>
 
@@ -1339,8 +1647,8 @@
           <div class="service-desc">
             Mktoub mzyan w organisé – Kaywsslk rapport complet fih ga3 detail lighatjblik la note wzid lfou9😉.
           </div>
-          <a href="#" class="service-btn" data-service="Rapport de stage">
-            <i class="fab fa-whatsapp"></i> Bghit had service
+          <a href="#pricing" class="service-btn" data-service="Rapport de stage">
+            <i class="fas fa-tag"></i> Voir les prix
           </a>
         </div>
 
@@ -1352,8 +1660,8 @@
           <div class="service-desc">
             Ay type dyal rapport li bghiti – technique, recherche, PFE wela ghiro
           </div>
-          <a href="#" class="service-btn" data-service="Rapport">
-            <i class="fab fa-whatsapp"></i> Bghit had service
+          <a href="#pricing" class="service-btn" data-service="Rapport">
+            <i class="fas fa-tag"></i> Voir les prix
           </a>
         </div>
 
@@ -1365,8 +1673,8 @@
           <div class="service-desc">
             kanssayb l présentation dyal soutenance bach tjik sahla w clear, w tdewz soutenance dyalk wnta mrta7 wtay9 frask 😎.
           </div>
-          <a href="#" class="service-btn" data-service="Slides dyal Rapport">
-            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          <a href="#pricing" class="service-btn" data-service="Slides dyal Rapport">
+            <i class="fas fa-tag"></i> Voir les prix
           </a>
         </div>
 
@@ -1378,8 +1686,8 @@
           <div class="service-desc">
             CV li pro w kayjib les offres de travail – design n9i likay khli bonne impression 3nd les recruteurs👀
           </div>
-          <a href="#" class="service-btn" data-service="CV Pro">
-            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          <a href="#pricing" class="service-btn" data-service="CV Pro">
+            <i class="fas fa-tag"></i> Voir les prix
           </a>
         </div>
 
@@ -1391,9 +1699,317 @@
           <div class="service-desc">
             Rapport + Slides + CV – kolchi f wa7ed – prix mzyan w delivery sri3a, twsslk 9bel lwe9t.
           </div>
-          <a href="#" class="service-btn" data-service="Pack Complet">
-            <i class="fab fa-whatsapp"></i> Bghit had sevice
+          <a href="#pricing" class="service-btn" data-service="Pack Complet">
+            <i class="fas fa-tag"></i> Voir les prix
           </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       PRICING SECTION (NEW)
+  =========================== -->
+  <section id="pricing">
+    <div class="container">
+      <div class="pricing-header">
+        <span class="pricing-badge">💰 Transparent Pricing</span>
+        <h2 class="section-title">Pricing Packages</h2>
+        <p class="section-sub">Khtar pack li mnassbek – Qualité garantie 🔥</p>
+        <span class="student-discount">🎓 Offre Étudiant: -15% avec carte étudiant</span>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- PPT Presentation Card -->
+        <div class="pricing-card reveal">
+          <div class="pricing-card-header">
+            <span class="pricing-card-icon">🎯</span>
+            <div class="pricing-card-title">Présentations PPT</div>
+          </div>
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Basic</div>
+              <div class="pricing-tier-price">150 MAD <small>/ ≤10 slides</small></div>
+              <ul class="pricing-features">
+                <li>Design professionnel</li>
+                <li>1 revision incluse</li>
+                <li>Livraison 48h</li>
+                <li>Format PPT + PDF</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Basic PPT">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier standard">
+              <div class="pricing-tier-name">Standard ⭐</div>
+              <div class="pricing-tier-price">300 MAD <small>/ ≤25 slides</small></div>
+              <ul class="pricing-features">
+                <li>Animations fluides</li>
+                <li>Icônes & images pro</li>
+                <li>2 revisions incluses</li>
+                <li>Livraison 24h</li>
+                <li>Master slide template</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp primary" data-tier="Standard PPT">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Premium</div>
+              <div class="pricing-tier-price">500 MAD <small>/ ≤50 slides</small></div>
+              <ul class="pricing-features">
+                <li>Graphiques personnalisés</li>
+                <li>Revisions illimitées</li>
+                <li>Livraison express 12h</li>
+                <li>Support prioritaire</li>
+                <li>Source files incluses</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Premium PPT">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+          </div>
+          <p class="pricing-note">💡 Besoin de plus de slides? Contacte-moi pour un devis personnalisé</p>
+        </div>
+
+        <!-- CV Pro Card -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-card-header">
+            <span class="pricing-card-icon">📌</span>
+            <div class="pricing-card-title">CV Pro</div>
+          </div>
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Essentiel</div>
+              <div class="pricing-tier-price">100 MAD</div>
+              <ul class="pricing-features">
+                <li>1 page A4 design moderne</li>
+                <li>Formats PDF + Word</li>
+                <li>1 revision incluse</li>
+                <li>Livraison 24h</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Essentiel CV">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier standard">
+              <div class="pricing-tier-name">Pro ⭐</div>
+              <div class="pricing-tier-price">180 MAD</div>
+              <ul class="pricing-features">
+                <li>2 versions (FR/EN)</li>
+                <li>Optimisé ATS</li>
+                <li>Icônes & couleurs pro</li>
+                <li>2 revisions incluses</li>
+                <li>Guide conseils entretien</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp primary" data-tier="Pro CV">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Elite</div>
+              <div class="pricing-tier-price">300 MAD</div>
+              <ul class="pricing-features">
+                <li>Tout du pack Pro</li>
+                <li>Banner LinkedIn personnalisé</li>
+                <li>Lettre de motivation</li>
+                <li>Revisions illimitées</li>
+                <li>Livraison 12h express</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Elite CV">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+          </div>
+          <p class="pricing-note">✨ +50 MAD pour une version supplémentaire (AR/ES/etc.)</p>
+        </div>
+
+        <!-- Rapport de Stage Card -->
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-card-header">
+            <span class="pricing-card-icon">📋</span>
+            <div class="pricing-card-title">Rapport de stage</div>
+          </div>
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Basic</div>
+              <div class="pricing-tier-price">200 MAD <small>/ ≤10 pages</small></div>
+              <ul class="pricing-features">
+                <li>Structure professionnelle</li>
+                <li>Mise en forme soignée</li>
+                <li>1 revision incluse</li>
+                <li>Livraison 72h</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Basic Rapport">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier standard">
+              <div class="pricing-tier-name">Standard ⭐</div>
+              <div class="pricing-tier-price">400 MAD <small>/ ≤25 pages</small></div>
+              <ul class="pricing-features">
+                <li>Contenu rédigé & structuré</li>
+                <li>Graphiques & tableaux</li>
+                <li>2 revisions incluses</li>
+                <li>Livraison 48h</li>
+                <li>Version PPT résumé offerte</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp primary" data-tier="Standard Rapport">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Premium</div>
+              <div class="pricing-tier-price">700 MAD <small>/ ≤40 pages</small></div>
+              <ul class="pricing-features">
+                <li>Rédaction complète pro</li>
+                <li>Recherches & analyses incluses</li>
+                <li>Revisions illimitées</li>
+                <li>Livraison 24h express</li>
+                <li>Présentation soutenance incluse</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Premium Rapport">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+          </div>
+          <p class="pricing-note">📚 Pages supplémentaires: +15 MAD/page</p>
+        </div>
+
+        <!-- Rapports Tous Types Card -->
+        <div class="pricing-card reveal reveal-delay-3">
+          <div class="pricing-card-header">
+            <span class="pricing-card-icon">📄</span>
+            <div class="pricing-card-title">Rapports (tous types)</div>
+          </div>
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Basic</div>
+              <div class="pricing-tier-price">250 MAD</div>
+              <ul class="pricing-features">
+                <li>Structure & mise en forme</li>
+                <li>≤15 pages</li>
+                <li>1 revision</li>
+                <li>Livraison 72h</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Basic Rapport Type">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier standard">
+              <div class="pricing-tier-name">Standard ⭐</div>
+              <div class="pricing-tier-price">450 MAD</div>
+              <ul class="pricing-features">
+                <li>Rédaction partielle</li>
+                <li>≤30 pages</li>
+                <li>Graphiques & annexes</li>
+                <li>2 revisions</li>
+                <li>Livraison 48h</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp primary" data-tier="Standard Rapport Type">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Premium</div>
+              <div class="pricing-tier-price">800 MAD</div>
+              <ul class="pricing-features">
+                <li>Rédaction complète pro</li>
+                <li>≤50 pages</li>
+                <li>Recherches approfondies</li>
+                <li>Revisions illimitées</li>
+                <li>Livraison 24h</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Premium Rapport Type">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+          </div>
+          <p class="pricing-note">🔬 PFE/Thèse? Contacte-moi pour un devis sur mesure</p>
+        </div>
+
+        <!-- Slides Soutenance Card -->
+        <div class="pricing-card reveal reveal-delay-4">
+          <div class="pricing-card-header">
+            <span class="pricing-card-icon">🖥️</span>
+            <div class="pricing-card-title">Présentation Soutenance</div>
+          </div>
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Basic</div>
+              <div class="pricing-tier-price">200 MAD <small>/ ≤15 slides</small></div>
+              <ul class="pricing-features">
+                <li>Design clair & professionnel</li>
+                <li>Transitions basiques</li>
+                <li>1 revision incluse</li>
+                <li>Livraison 48h</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Basic Soutenance">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier standard">
+              <div class="pricing-tier-name">Standard ⭐</div>
+              <div class="pricing-tier-price">350 MAD <small>/ ≤25 slides</small></div>
+              <ul class="pricing-features">
+                <li>Animations fluides & pro</li>
+                <li>Notes orateur incluses</li>
+                <li>2 revisions incluses</li>
+                <li>Livraison 24h</li>
+                <li>Version PDF imprimable</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp primary" data-tier="Standard Soutenance">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+            <div class="pricing-tier">
+              <div class="pricing-tier-name">Premium</div>
+              <div class="pricing-tier-price">600 MAD <small>/ ≤40 slides</small></div>
+              <ul class="pricing-features">
+                <li>Design sur-mesure premium</li>
+                <li>Guide de présentation détaillé</li>
+                <li>Revisions illimitées</li>
+                <li>Livraison express 12h</li>
+                <li>Simulation Q/R incluse</li>
+              </ul>
+              <a href="#" class="pricing-btn whatsapp" data-tier="Premium Soutenance">
+                <i class="fab fa-whatsapp"></i> Commander
+              </a>
+            </div>
+          </div>
+          <p class="pricing-note">🎤 +100 MAD pour coaching soutenance (30min Zoom)</p>
+        </div>
+
+        <!-- Pack Complet - HIGHLIGHTED -->
+        <div class="pricing-card pack-highlight reveal reveal-delay-5">
+          <div class="pricing-card-header">
+            <span class="pricing-card-icon">🎁</span>
+            <div class="pricing-card-title">Pack Complet</div>
+            <p style="font-size:0.9rem;color:var(--text-light);margin-top:4px">CV + Rapport + Slides – Tout-en-un 🔥</p>
+          </div>
+          <div class="pricing-tiers">
+            <div class="pricing-tier standard" style="border-width:3px">
+              <div class="pricing-tier-name">Tout-en-un ⭐⭐⭐</div>
+              <div class="pack-price">1,100 MAD <small>1,400 MAD</small></div>
+              <p class="pricing-tier-save">💰 Économisez 300 MAD (20% OFF)</p>
+              <div class="pack-features-grid">
+                <div class="pack-feature">CV Pro (2 versions FR/EN)</div>
+                <div class="pack-feature">Rapport complet (≤40 pages)</div>
+                <div class="pack-feature">Présentation soutenance (≤25 slides)</div>
+                <div class="pack-feature">Formats PDF + PPT + Word</div>
+                <div class="pack-feature">3 revisions incluses</div>
+                <div class="pack-feature">Livraison prioritaire 24h</div>
+                <div class="pack-feature">Support WhatsApp dédié</div>
+                <div class="pack-feature">Banner LinkedIn offert</div>
+              </div>
+              <a href="#" class="pricing-btn whatsapp primary" style="padding:14px;font-size:1rem" data-tier="Pack Complet">
+                <i class="fab fa-whatsapp"></i> Commander le Pack Maintenant
+              </a>
+              <p class="pricing-note" style="margin-top:16px;font-weight:600">🔒 Satisfaction garantie ou remboursé sous 48h</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1459,120 +2075,117 @@
   </section>
 
   <!-- ===========================
-       PORTFOLIO
+       PORTFOLIO / KHDEMTI
   =========================== -->
- <!-- ===========================
-     PORTFOLIO / KHDEMTI
-=========================== -->
-<section id="portfolio">
-  <div class="container">
-    <div class="text-center">
-      <span class="badge">💼 Khdemti</span>
-      <h2 class="section-title">Chno kandir</h2>
-      <p class="section-sub">Kolchi Nadi, Khedma n9ia w Pro 👌</p>
+  <section id="portfolio">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge">💼 Khdemti</span>
+        <h2 class="section-title">Chno kandir</h2>
+        <p class="section-sub">Kolchi Nadi, Khedma n9ia w Pro 👌</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- Service 1: Présentation PPT -->
+        <div class="portfolio-card reveal">
+          <img 
+            src="1.jpg" 
+            alt="Exemple Présentation PowerPoint Pro" 
+            class="portfolio-image"
+            loading="lazy"
+          >
+          <div class="portfolio-label">Présentation Corporative</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-overlay-title">PPT Pro – 25 Slides</div>
+            <div class="portfolio-overlay-desc">Design n9i, colors elegant, animations Nadya</div>
+            <a href="#pricing" data-service="Présentation PPT">Voir pricing</a>
+          </div>
+        </div>
+
+        <!-- Service 2: CV Pro -->
+        <div class="portfolio-card reveal reveal-delay-1">
+          <img 
+            src="2.png" 
+            alt="Exemple CV Professionnel Moderne" 
+            class="portfolio-image"
+            loading="lazy"
+          >
+          <div class="portfolio-label">CV Pro – Modern Style</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-overlay-title">CV Pro Design</div>
+            <div class="portfolio-overlay-desc">Clean, modern w professional</div>
+            <a href="#pricing" data-service="CV Pro">Voir pricing</a>
+          </div>
+        </div>
+
+        <!-- Service 3: Rapport de Stage -->
+        <div class="portfolio-card reveal reveal-delay-2">
+          <img 
+            src="3.png" 
+            alt="Exemple Rapport de Stage Complet" 
+            class="portfolio-image"
+            loading="lazy"
+          >
+          <div class="portfolio-label">Rapport de Stage</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-overlay-title">Rapport Complet</div>
+            <div class="portfolio-overlay-desc">Organisé, clair w structuré</div>
+            <a href="#pricing" data-service="Rapport de stage">Voir pricing</a>
+          </div>
+        </div>
+
+        <!-- Service 4: Slides Soutenance -->
+        <div class="portfolio-card reveal reveal-delay-3">
+          <img 
+            src="4.png" 
+            alt="Exemple Présentation Soutenance PFE" 
+            class="portfolio-image"
+            loading="lazy"
+          >
+          <div class="portfolio-label">Slides Soutenance</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-overlay-title">Slides Soutenance PFE</div>
+            <div class="portfolio-overlay-desc">Mn rapport l Presentation slides PPT – pro w Qualite</div>
+            <a href="#pricing" data-service="Presentation dyal Rapport">Voir pricing</a>
+          </div>
+        </div>
+
+        <!-- Service 5: Data Viz -->
+        <div class="portfolio-card reveal reveal-delay-4">
+          <img 
+            src="5.png" 
+            alt="Exemple Présentation avec Graphiques" 
+            class="portfolio-image"
+            loading="lazy"
+          >
+          <div class="portfolio-label">Présentation Data</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-overlay-title">Data Viz Slides</div>
+            <div class="portfolio-overlay-desc">Charts, graphs w infographics – Qualite Wa3ra</div>
+            <a href="#pricing" data-service="Présentation PPT">Voir pricing</a>
+          </div>
+        </div>
+
+        <!-- Service 6: Pack Complet -->
+        <div class="portfolio-card reveal reveal-delay-5">
+          <img 
+            src="6.jpg" 
+            alt="Exemple Pack Complet CV + Rapport + Slides" 
+            class="portfolio-image"
+            loading="lazy"
+          >
+          <div class="portfolio-label">Pack Complet</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-overlay-title">Pack: CV + Rapport + Slides</div>
+            <div class="portfolio-overlay-desc">Kolchi f wa7ed – ready to go 🔥</div>
+            <a href="#pricing" data-service="Pack Complet">Voir pricing</a>
+          </div>
+        </div>
+
+      </div>
     </div>
-
-    <div class="portfolio-grid">
-
-      <!-- Service 1: Présentation PPT -->
-      <div class="portfolio-card reveal">
-        <img 
-          src="1.jpg" 
-          alt="Exemple Présentation PowerPoint Pro" 
-          class="portfolio-image"
-          loading="lazy"
-        >
-        <div class="portfolio-label">Présentation Corporative</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">PPT Pro – 25 Slides</div>
-          <div class="portfolio-overlay-desc">Design n9i, colors elegant, animations Nadya</div>
-          <a href="#" data-service="Présentation PPT">bghit had service</a>
-        </div>
-      </div>
-
-      <!-- Service 2: CV Pro -->
-      <div class="portfolio-card reveal reveal-delay-1">
-        <img 
-          src="2.png" 
-          alt="Exemple CV Professionnel Moderne" 
-          class="portfolio-image"
-          loading="lazy"
-        >
-        <div class="portfolio-label">CV Pro – Modern Style</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">CV Pro Design</div>
-          <div class="portfolio-overlay-desc">Clean, modern w professional</div>
-          <a href="#" data-service="CV Pro">bghit had service</a>
-        </div>
-      </div>
-
-      <!-- Service 3: Rapport de Stage -->
-      <div class="portfolio-card reveal reveal-delay-2">
-        <img 
-          src="3.png" 
-          alt="Exemple Rapport de Stage Complet" 
-          class="portfolio-image"
-          loading="lazy"
-        >
-        <div class="portfolio-label">Rapport de Stage</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Rapport Complet</div>
-          <div class="portfolio-overlay-desc">Organisé, clair w structuré</div>
-          <a href="#" data-service="Rapport de stage">bghit had service</a>
-        </div>
-      </div>
-
-      <!-- Service 4: Slides Soutenance -->
-      <div class="portfolio-card reveal reveal-delay-3">
-        <img 
-          src="4.png" 
-          alt="Exemple Présentation Soutenance PFE" 
-          class="portfolio-image"
-          loading="lazy"
-        >
-        <div class="portfolio-label">Slides Soutenance</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Slides Soutenance PFE</div>
-          <div class="portfolio-overlay-desc">Mn rapport l Presentation slides PPT – pro w Qualite</div>
-          <a href="#" data-service="Presentation dyal Rapport">bghit had service</a>
-        </div>
-      </div>
-
-      <!-- Service 5: Data Viz -->
-      <div class="portfolio-card reveal reveal-delay-4">
-        <img 
-          src="5.png" 
-          alt="Exemple Présentation avec Graphiques" 
-          class="portfolio-image"
-          loading="lazy"
-        >
-        <div class="portfolio-label">Présentation Data</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Data Viz Slides</div>
-          <div class="portfolio-overlay-desc">Charts, graphs w infographics – Qualite Wa3ra</div>
-          <a href="#" data-service="Présentation PPT">bghit had service</a>
-        </div>
-      </div>
-
-      <!-- Service 6: Pack Complet -->
-      <div class="portfolio-card reveal reveal-delay-5">
-        <img 
-          src="6.jpg" 
-          alt="Exemple Pack Complet CV + Rapport + Slides" 
-          class="portfolio-image"
-          loading="lazy"
-        >
-        <div class="portfolio-label">Pack Complet</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-title">Pack: CV + Rapport + Slides</div>
-          <div class="portfolio-overlay-desc">Kolchi f wa7ed – ready to go 🔥</div>
-          <a href="#" data-service="Pack Complet">Bghit Pack</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- ===========================
        WHY ME
@@ -1722,10 +2335,15 @@
     // ============================
     // WHATSAPP URL GENERATOR
     // ============================
-    function buildWaUrl(service = null) {
-      let msg = service
-        ? `Salam, bghit service dyal ${service} 🙏 W9tach ywjed?`
-        : DEFAULT_MESSAGE;
+    function buildWaUrl(service = null, tier = null) {
+      let msg = DEFAULT_MESSAGE;
+      
+      if (service && tier) {
+        msg = `Salam! Bghit service: ${service} - Pack ${tier} 💼 W9tach ywjed?`;
+      } else if (service) {
+        msg = `Salam, bghit service dyal ${service} 🙏 W9tach ywjed?`;
+      }
+      
       return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`;
     }
 
@@ -1733,12 +2351,40 @@
     // BIND ALL WA BUTTONS
     // ============================
     function bindWaButtons() {
-      // Service cards buttons
-      document.querySelectorAll('[data-service]').forEach(el => {
+      // Service cards buttons (navigate to pricing)
+      document.querySelectorAll('.service-btn[data-service]').forEach(el => {
         el.addEventListener('click', e => {
           e.preventDefault();
           const service = el.getAttribute('data-service');
-          window.open(buildWaUrl(service), '_blank');
+          // Smooth scroll to pricing section
+          document.querySelector('#pricing').scrollIntoView({ behavior: 'smooth' });
+          // Optional: highlight relevant pricing card
+        });
+      });
+
+      // Portfolio overlay buttons
+      document.querySelectorAll('.portfolio-overlay a[data-service]').forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          const service = el.getAttribute('data-service');
+          document.querySelector('#pricing').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Pricing tier buttons with service+tier
+      document.querySelectorAll('.pricing-btn.whatsapp[data-tier]').forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          const tier = el.getAttribute('data-tier');
+          // Extract service name from tier text (e.g., "Standard PPT" -> "Présentation PPT")
+          let service = tier.split(' ').slice(1).join(' ');
+          if (tier.includes('CV')) service = 'CV Pro';
+          else if (tier.includes('Rapport') && !tier.includes('Type')) service = 'Rapport de stage';
+          else if (tier.includes('Soutenance')) service = 'Présentation Soutenance';
+          else if (tier.includes('Pack')) service = 'Pack Complet';
+          else if (tier.includes('PPT')) service = 'Présentation PPT';
+          
+          window.open(buildWaUrl(service, tier), '_blank');
         });
       });
 
@@ -1840,7 +2486,9 @@
     // ============================
     // INIT
     // ============================
-    bindWaButtons();
+    document.addEventListener('DOMContentLoaded', () => {
+      bindWaButtons();
+    });
   </script>
 
 </body>
