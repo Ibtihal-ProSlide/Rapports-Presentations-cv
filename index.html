@@ -694,14 +694,15 @@
     .student-discount {
       background: var(--wa-green);
       color: white;
-      padding: 4px 12px;
+      padding: 6px 16px;
       border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      font-size: 0.85rem;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      margin-top: 8px;
+      gap: 6px;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
     }
 
     .pricing-grid {
@@ -815,6 +816,23 @@
       font-weight: 800;
       color: var(--primary);
       margin: 4px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-tier-price .current-price {
+      color: var(--price-highlight);
+      font-size: 1.6rem;
+    }
+
+    .pricing-tier-price .original-price {
+      text-decoration: line-through;
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     .pricing-tier-price small {
@@ -823,17 +841,15 @@
       font-weight: 400;
     }
 
-    .pricing-tier-old {
-      text-decoration: line-through;
-      color: var(--text-light);
-      margin-left: 6px;
-    }
-
     .pricing-tier-save {
-      color: var(--price-highlight);
+      color: var(--wa-green);
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       margin: 4px 0 12px 0;
+      background: rgba(37,211,102,0.1);
+      padding: 2px 8px;
+      border-radius: 12px;
+      display: inline-block;
     }
 
     .pricing-features {
@@ -917,8 +933,8 @@
   border: 3px solid var(--price-highlight);
   background: linear-gradient(135deg, #fff5f5, #fff);
   position: relative;
-  overflow: visible; /* Changed from hidden to visible */
-  margin-top: 20px; /* Add spacing for the badge */
+  overflow: visible;
+  margin-top: 20px;
 }
 
 .pricing-card.pack-highlight::before {
@@ -971,13 +987,22 @@
       font-weight: 800;
       color: var(--price-highlight);
       margin: 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .pack-price small {
-      font-size: 1rem;
+    .pack-price .current-price {
+      font-size: 2.2rem;
+    }
+
+    .pack-price .original-price {
+      font-size: 1.3rem;
       color: var(--text-light);
       text-decoration: line-through;
-      margin-left: 8px;
+      font-weight: 500;
     }
 
     /* ===========================
@@ -1723,7 +1748,7 @@
         <span class="pricing-badge">💰 Transparent Pricing</span>
         <h2 class="section-title">Pricing Packages</h2>
         <p class="section-sub">Khtar pack li mnassbek – Qualité garantie 🔥</p>
-        <span class="student-discount">🎓 Offre Étudiant: -15% </span>
+        <span class="student-discount">🎓 Prix déjà avec réduction étudiant (-15%)</span>
       </div>
 
       <div class="pricing-grid">
@@ -1737,7 +1762,11 @@
           <div class="pricing-tiers">
             <div class="pricing-tier">
               <div class="pricing-tier-name">Basic</div>
-              <div class="pricing-tier-price">100 MAD <small>/ ≤10 slides</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">100 MAD</span>
+                <span class="original-price">120 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Design professionnel</li>
                 <li>1 revision incluse</li>
@@ -1750,7 +1779,11 @@
             </div>
             <div class="pricing-tier standard">
               <div class="pricing-tier-name">Standard ⭐</div>
-              <div class="pricing-tier-price">150 MAD <small>/ ≤25 slides</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">150 MAD</span>
+                <span class="original-price">180 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Animations fluides</li>
                 <li>Icônes & images pro</li>
@@ -1764,7 +1797,11 @@
             </div>
             <div class="pricing-tier">
               <div class="pricing-tier-name">Premium</div>
-              <div class="pricing-tier-price">200 MAD <small>/ ≤50 slides</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">200 MAD</span>
+                <span class="original-price">240 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Graphiques personnalisés</li>
                 <li>Revisions illimitées</li>
@@ -1789,7 +1826,11 @@
           <div class="pricing-tiers">
             <div class="pricing-tier">
               <div class="pricing-tier-name">Essentiel</div>
-              <div class="pricing-tier-price">50 MAD</div>
+              <div class="pricing-tier-price">
+                <span class="current-price">50 MAD</span>
+                <span class="original-price">60 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>1 page A4 design moderne</li>
                 <li>Formats PDF + Word</li>
@@ -1802,7 +1843,11 @@
             </div>
             <div class="pricing-tier standard">
               <div class="pricing-tier-name">Pro ⭐</div>
-              <div class="pricing-tier-price">100 MAD</div>
+              <div class="pricing-tier-price">
+                <span class="current-price">100 MAD</span>
+                <span class="original-price">120 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>2 versions (FR/EN)</li>
                 <li>Optimisé ATS</li>
@@ -1816,7 +1861,11 @@
             </div>
             <div class="pricing-tier">
               <div class="pricing-tier-name">Elite</div>
-              <div class="pricing-tier-price">150 MAD</div>
+              <div class="pricing-tier-price">
+                <span class="current-price">150 MAD</span>
+                <span class="original-price">180 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Tout du pack Pro</li>
                 <li>Banner LinkedIn personnalisé</li>
@@ -1841,7 +1890,11 @@
           <div class="pricing-tiers">
             <div class="pricing-tier">
               <div class="pricing-tier-name">Basic</div>
-              <div class="pricing-tier-price">150 MAD <small>/ 20 pages≤ </small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">150 MAD</span>
+                <span class="original-price">180 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Structure professionnelle</li>
                 <li>Mise en forme soignée</li>
@@ -1854,7 +1907,11 @@
             </div>
             <div class="pricing-tier standard">
               <div class="pricing-tier-name">Standard ⭐</div>
-              <div class="pricing-tier-price">200 MAD <small>/ 35 pages≤ </small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">200 MAD</span>
+                <span class="original-price">240 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Contenu rédigé & structuré</li>
                 <li>Graphiques & tableaux</li>
@@ -1868,7 +1925,11 @@
             </div>
             <div class="pricing-tier">
               <div class="pricing-tier-name">Premium</div>
-              <div class="pricing-tier-price">300 MAD <small>/ ≤35 pages</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">300 MAD</span>
+                <span class="original-price">360 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Rédaction complète pro</li>
                 <li>Recherches & analyses incluses</li>
@@ -1893,7 +1954,11 @@
           <div class="pricing-tiers">
             <div class="pricing-tier">
               <div class="pricing-tier-name">Basic</div>
-              <div class="pricing-tier-price">150 MAD</div>
+              <div class="pricing-tier-price">
+                <span class="current-price">150 MAD</span>
+                <span class="original-price">180 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Structure & mise en forme</li>
                 <li>≤15 pages</li>
@@ -1906,7 +1971,11 @@
             </div>
             <div class="pricing-tier standard">
               <div class="pricing-tier-name">Standard ⭐</div>
-              <div class="pricing-tier-price">250 MAD</div>
+              <div class="pricing-tier-price">
+                <span class="current-price">250 MAD</span>
+                <span class="original-price">300 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Rédaction partielle</li>
                 <li>≤30 pages</li>
@@ -1920,7 +1989,11 @@
             </div>
             <div class="pricing-tier">
               <div class="pricing-tier-name">Premium</div>
-              <div class="pricing-tier-price">350 MAD</div>
+              <div class="pricing-tier-price">
+                <span class="current-price">350 MAD</span>
+                <span class="original-price">420 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Rédaction complète pro</li>
                 <li>≤50 pages</li>
@@ -1945,7 +2018,11 @@
           <div class="pricing-tiers">
             <div class="pricing-tier">
               <div class="pricing-tier-name">Basic</div>
-              <div class="pricing-tier-price">100 MAD <small>/ ≤15 slides</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">100 MAD</span>
+                <span class="original-price">120 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Design clair & professionnel</li>
                 <li>Transitions basiques</li>
@@ -1958,7 +2035,11 @@
             </div>
             <div class="pricing-tier standard">
               <div class="pricing-tier-name">Standard ⭐</div>
-              <div class="pricing-tier-price">200 MAD <small>/ ≤25 slides</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">200 MAD</span>
+                <span class="original-price">240 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Animations fluides & pro</li>
                 <li>Notes orateur incluses</li>
@@ -1972,7 +2053,11 @@
             </div>
             <div class="pricing-tier">
               <div class="pricing-tier-name">Premium</div>
-              <div class="pricing-tier-price">250 MAD <small>/ ≤40 slides</small></div>
+              <div class="pricing-tier-price">
+                <span class="current-price">250 MAD</span>
+                <span class="original-price">300 MAD</span>
+              </div>
+              <div class="pricing-tier-save">💚 Déjà -15% étudiant</div>
               <ul class="pricing-features">
                 <li>Design sur-mesure premium</li>
                 <li>Guide de présentation détaillé</li>
@@ -1998,8 +2083,11 @@
           <div class="pricing-tiers">
             <div class="pricing-tier standard" style="border-width:3px">
               <div class="pricing-tier-name">Tout-en-un ⭐⭐⭐</div>
-              <div class="pack-price">1,100 MAD <small>1,400 MAD</small></div>
-              <p class="pricing-tier-save">💰 Économisez 300 MAD (20% OFF)</p>
+              <div class="pack-price">
+                <span class="current-price">1,100 MAD</span>
+                <span class="original-price">1,400 MAD</span>
+              </div>
+              <p class="pricing-tier-save">💰 Économisez 300 MAD (Pack) + Déjà -15% étudiant inclus!</p>
               <div class="pack-features-grid">
                 <div class="pack-feature">CV Pro (2 versions FR/EN)</div>
                 <div class="pack-feature">Rapport complet (≤40 pages)</div>
@@ -2314,7 +2402,7 @@
   =========================== -->
   <footer>
     <p>© 2026 <strong style="color:var(--primary)">Ibtihal-ProSlide.gethub.io</strong> – Kolchi pro, n9i w naaaadyyy ✨</p>
-    <p style="margin-top:8px">Created with ❤️ 🇲🇦</p>
+    <p style="margin-top:8px">Created with ❤️ 🇲</p>
   </footer>
 
   <!-- ===========================
