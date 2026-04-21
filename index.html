@@ -911,28 +911,34 @@
       font-style: italic;
     }
 
-    /* Pack Complet Highlight */
-    .pricing-card.pack-highlight {
-      grid-column: 1 / -1;
-      border: 3px solid var(--price-highlight);
-      background: linear-gradient(135deg, #fff5f5, #fff);
-      position: relative;
-    }
+/* Pack Complet Highlight */
+.pricing-card.pack-highlight {
+  grid-column: 1 / -1;
+  border: 3px solid var(--price-highlight);
+  background: linear-gradient(135deg, #fff5f5, #fff);
+  position: relative;
+  overflow: visible; /* Changed from hidden to visible */
+  margin-top: 20px; /* Add spacing for the badge */
+}
 
-    .pricing-card.pack-highlight::after {
-      content: '🔥 Best Value - Save 20%';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--price-highlight);
-      color: white;
-      padding: 4px 20px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      animation: pulse 2s infinite;
-    }
+.pricing-card.pack-highlight::before {
+  content: '🔥 Best Value - Save 20%';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 8px 28px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+  animation: pulse 2s infinite;
+  letter-spacing: 0.5px;
+}
 
     .pack-features-grid {
       display: grid;
@@ -1717,7 +1723,7 @@
         <span class="pricing-badge">💰 Transparent Pricing</span>
         <h2 class="section-title">Pricing Packages</h2>
         <p class="section-sub">Khtar pack li mnassbek – Qualité garantie 🔥</p>
-        <span class="student-discount">🎓 Offre Étudiant: -15% avec carte étudiant</span>
+        <span class="student-discount">🎓 Offre Étudiant: -15% </span>
       </div>
 
       <div class="pricing-grid">
