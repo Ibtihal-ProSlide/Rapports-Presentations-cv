@@ -1006,6 +1006,209 @@
     }
 
     /* ===========================
+       FORMATION PRICING SECTION
+    =========================== */
+    #formation-pricing {
+      background: linear-gradient(135deg, #f0f4ff 0%, #f8f7ff 100%);
+      padding: 80px 20px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .packages-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .packages-grid { 
+        grid-template-columns: repeat(4, 1fr); 
+      }
+    }
+
+    .package-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .package-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .package-card.featured {
+      border-color: var(--price-standard);
+      background: linear-gradient(135deg, #f8fbff, #f0f7ff);
+      transform: scale(1.02);
+    }
+
+    .package-card.featured:hover {
+      transform: scale(1.03);
+    }
+
+    .package-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: var(--transition);
+      border: 2px solid var(--primary);
+    }
+
+    .package-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108,99,255,0.2);
+    }
+
+    .package-btn.primary {
+      background: var(--price-standard);
+      color: white;
+      border: none;
+      font-size: 1.05rem;
+    }
+
+    .package-btn.primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 8px 24px rgba(52, 152, 219, 0.3);
+    }
+
+    .package-btn.outline {
+      background: transparent;
+      color: var(--secondary);
+      border: 2px solid var(--secondary);
+    }
+
+    .package-btn.outline:hover {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .loyalty-banner {
+      background: linear-gradient(135deg, #fff9e6, #fff3cd);
+      border: 2px solid #ffc107;
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin: 20px auto 0;
+      max-width: 500px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #856404;
+    }
+
+    .loyalty-banner.show {
+      display: flex !important;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .loyalty-price {
+      display: none;
+      margin-top: 8px;
+    }
+
+    .loyalty-price.show {
+      display: block !important;
+      animation: fadeInUp 0.4s ease 0.1s forwards;
+    }
+
+    .loyalty-badge {
+      display: none;
+      background: var(--wa-green);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin: 10px auto 0;
+      width: fit-content;
+    }
+
+    .loyalty-badge.show {
+      display: block !important;
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .comparison-table {
+      margin-top: 60px;
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .comparison-table { 
+        display: block; 
+      }
+    }
+
+    .faq-answer.active {
+      padding: 12px 20px;
+      max-height: 200px;
+    }
+
+    .faq-icon.active {
+      transform: rotate(45deg);
+    }
+
+    @media (max-width: 767px) {
+      .package-card {
+        padding: 20px;
+      }
+      
+      .package-card.featured {
+        transform: none !important;
+        border-width: 2px;
+      }
+      
+      .package-price .current-price {
+        font-size: 1.5rem;
+      }
+      
+      .comparison-table {
+        font-size: 0.8rem;
+      }
+      
+      .comparison-table th,
+      .comparison-table td {
+        padding: 8px 6px;
+      }
+    }
+
+    /* ===========================
        HOW IT WORKS
     =========================== */
     #how-it-works {
@@ -1497,93 +1700,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  /* Package Card Hover Effects */
-  .package-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-  }
-  
-  .package-card.featured:hover {
-    transform: scale(1.03);
-  }
-  
-  /* Package Button Styles */
-  .package-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(108,99,255,0.2);
-  }
-  
-  .package-btn.primary:hover {
-    background: var(--primary-dark);
-    box-shadow: 0 8px 24px rgba(52, 152, 219, 0.3);
-  }
-  
-  .package-btn.outline:hover {
-    background: var(--secondary);
-    color: white;
-  }
-  
-  /* FAQ Accordion */
-  .faq-answer.active {
-    padding: 12px 20px;
-    max-height: 200px;
-  }
-  
-  .faq-icon.active {
-    transform: rotate(45deg);
-  }
-  
-  /* Mobile Optimizations */
-  @media (max-width: 767px) {
-    .package-card {
-      padding: 20px;
-    }
-    
-    .package-card.featured {
-      transform: none !important;
-      border-width: 2px;
-    }
-    
-    .package-price .current-price {
-      font-size: 1.5rem;
-    }
-    
-    .comparison-table {
-      font-size: 0.8rem;
-    }
-    
-    .comparison-table th,
-    .comparison-table td {
-      padding: 8px 6px;
-    }
-  }
-  
-  /* Animation for loyalty badge */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .loyalty-badge.show {
-    display: block !important;
-    animation: fadeInUp 0.4s ease forwards;
-  }
-  
-  .loyalty-price.show {
-    display: block !important;
-    animation: fadeInUp 0.4s ease 0.1s forwards;
-  }
-  
-  .loyalty-banner.show {
-    display: flex !important;
-    animation: fadeInUp 0.5s ease forwards;
-  }
 
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
@@ -2196,516 +2312,375 @@
       </div>
     </div>
   </section>
-  <!-- Add this NEW SECTION after your existing #pricing section -->
-<section id="formation-pricing" style="background: linear-gradient(135deg, #f0f4ff 0%, #f8f7ff 100%); padding: 80px 20px;">
-  <div class="container">
-    
-    <!-- Header -->
-    <div class="text-center" style="margin-bottom: 50px;">
-      <span class="badge" style="background: linear-gradient(135deg, var(--accent), #2ecc71); color: white;">🎓 Nouvelle Formation</span>
-      <h2 class="section-title" style="font-size: 2rem; margin: 12px 0;">Formation Bureautique Complet + AI</h2>
-      <p class="section-sub" style="max-width: 600px; margin: 0 auto;">
-        Maîtrisez Microsoft Office de A à Z + Intégrez l'IA pour booster votre productivité 🔥
-      </p>
-      
-      <!-- Loyalty Discount Banner -->
-      <div id="loyalty-banner" class="loyalty-banner" style="
-        background: linear-gradient(135deg, #fff9e6, #fff3cd);
-        border: 2px solid #ffc107;
-        border-radius: 12px;
-        padding: 12px 20px;
-        margin: 20px auto 0;
-        max-width: 500px;
-        display: none;
-        align-items: center;
-        gap: 10px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: #856404;
-      ">
-        <span style="font-size: 1.3rem;">🎁</span>
-        <span><strong>Client fidèle ?</strong> Bénéficiez automatiquement de <strong>-10%</strong> sur tous nos packs !</span>
-      </div>
-    </div>
 
-    <!-- Packages Grid -->
-    <div class="packages-grid" style="
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-    ">
+  <!-- ===========================
+       FORMATION PRICING SECTION
+  =========================== -->
+  <section id="formation-pricing">
+    <div class="container">
       
-      @media (min-width: 768px) {
-        .packages-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-      @media (min-width: 1024px) {
-        .packages-grid { grid-template-columns: repeat(4, 1fr); }
-      }
-
-      <!-- BEGINNER PACKAGE -->
-      <div class="package-card reveal" style="
-        background: white;
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border: 2px solid var(--border);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-      ">
-        <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
-          <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🌱</span>
-          <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Beginner</h3>
-          <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Pour débutants</p>
-        </div>
+      <!-- Header -->
+      <div class="text-center" style="margin-bottom: 50px;">
+        <span class="badge" style="background: linear-gradient(135deg, var(--accent), #2ecc71); color: white;">🎓 Nouvelle Formation</span>
+        <h2 class="section-title" style="font-size: 2rem; margin: 12px 0;">Formation Bureautique Complet + AI</h2>
+        <p class="section-sub" style="max-width: 600px; margin: 0 auto;">
+          Maîtrisez Microsoft Office de A à Z + Intégrez l'IA pour booster votre productivité 🔥
+        </p>
         
-        <div style="text-align: center; margin: 20px 0;">
-          <div class="package-price" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <span class="current-price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">500 MAD</span>
-            <span style="font-size: 1rem; color: var(--text-light);">/mois</span>
+        <!-- Loyalty Discount Banner -->
+        <div id="loyalty-banner" class="loyalty-banner">
+          <span style="font-size: 1.3rem;">🎁</span>
+          <span><strong>Client fidèle ?</strong> Bénéficiez automatiquement de <strong>-10%</strong> sur tous nos packs !</span>
+        </div>
+      </div>
+
+      <!-- Packages Grid -->
+      <div class="packages-grid">
+
+        <!-- BEGINNER PACKAGE -->
+        <div class="package-card reveal">
+          <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🌱</span>
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Beginner</h3>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Pour débutants</p>
           </div>
-          <div class="loyalty-price" style="display: none; margin-top: 8px;">
-            <span style="text-decoration: line-through; color: var(--text-light); font-size: 1rem;">500 MAD</span>
-            <span style="color: var(--wa-green); font-weight: 700; margin-left: 6px;">→ 450 MAD</span>
+          
+          <div style="text-align: center; margin: 20px 0;">
+            <div class="package-price" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+              <span class="current-price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">500 MAD</span>
+              <span style="font-size: 1rem; color: var(--text-light);">/mois</span>
+            </div>
+            <div class="loyalty-price">
+              <span style="text-decoration: line-through; color: var(--text-light); font-size: 1rem;">500 MAD</span>
+              <span style="color: var(--wa-green); font-weight: 700; margin-left: 6px;">→ 450 MAD</span>
+            </div>
+            <div class="loyalty-badge">💚 -10% Client fidèle</div>
           </div>
-          <div class="loyalty-badge" style="
-            display: none;
-            background: var(--wa-green);
+          
+          <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; font-size: 0.9rem; color: var(--text-light);">
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ <strong>MOS complet</strong> (Word, Excel, PowerPoint)</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Bases solides & bonnes pratiques</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Exercices pratiques & projets</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Support WhatsApp inclus</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--text-light); opacity: 0.7;">✗ Pas d'intégration IA</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--text-light); opacity: 0.7;">✗ Pas de certification avancée</li>
+          </ul>
+          
+          <a href="#" class="package-btn" data-package="Beginner">Commencer maintenant</a>
+          
+          <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
+            💡 Idéal pour : Étudiants, nouveaux diplômés, reconversion
+          </p>
+        </div>
+
+        <!-- PREMIUM PACKAGE (FEATURED) -->
+        <div class="package-card featured reveal reveal-delay-1">
+          <!-- Most Popular Badge -->
+          <div style="
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--price-standard);
             color: white;
-            padding: 4px 12px;
+            padding: 4px 16px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
-            margin: 10px auto 0;
-            width: fit-content;
-          ">💚 -10% Client fidèle</div>
+            z-index: 5;
+          ">⭐ Most Popular</div>
+          
+          <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🚀</span>
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Premium</h3>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Pour professionnels</p>
+          </div>
+          
+          <div style="text-align: center; margin: 20px 0;">
+            <div class="package-price" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+              <span class="current-price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">700 MAD</span>
+              <span style="font-size: 1rem; color: var(--text-light);">/mois</span>
+            </div>
+            <div class="loyalty-price">
+              <span style="text-decoration: line-through; color: var(--text-light); font-size: 1rem;">700 MAD</span>
+              <span style="color: var(--wa-green); font-weight: 700; margin-left: 6px;">→ 630 MAD</span>
+            </div>
+            <div class="loyalty-badge">💚 -10% Client fidèle</div>
+          </div>
+          
+          <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; font-size: 0.9rem; color: var(--text-light);">
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ <strong>Tout le pack Beginner</strong></li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Excel avancé (macros, tableaux croisés)</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ PowerPoint pro (animations, master slides)</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Word expert (publipostage, styles)</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Certification MOS préparée</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--text-light); opacity: 0.7;">✗ Pas d'intégration IA</li>
+          </ul>
+          
+          <a href="#" class="package-btn primary" data-package="Premium">Choisir ce pack</a>
+          
+          <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
+            💡 Idéal pour : Employés, managers, entrepreneurs
+          </p>
         </div>
-        
-        <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; font-size: 0.9rem; color: var(--text-light);">
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ <strong>MOS complet</strong> (Word, Excel, PowerPoint)</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Bases solides & bonnes pratiques</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Exercices pratiques & projets</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Support WhatsApp inclus</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--text-light); opacity: 0.7;">✗ Pas d'intégration IA</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--text-light); opacity: 0.7;">✗ Pas de certification avancée</li>
-        </ul>
-        
-        <a href="#" class="package-btn" data-package="Beginner" style="
-          display: block;
-          width: 100%;
-          padding: 12px;
-          background: var(--primary-light);
-          color: var(--primary);
-          border-radius: 50px;
-          font-weight: 600;
-          text-decoration: none;
-          text-align: center;
-          transition: var(--transition);
-          border: 2px solid var(--primary);
-        ">Commencer maintenant</a>
-        
-        <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
-          💡 Idéal pour : Étudiants, nouveaux diplômés, reconversion
-        </p>
-      </div>
 
-      <!-- PREMIUM PACKAGE (FEATURED) -->
-      <div class="package-card featured reveal reveal-delay-1" style="
-        background: white;
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow-hover);
-        border: 3px solid var(--price-standard);
-        transition: var(--transition);
-        position: relative;
-        overflow: visible;
-        transform: scale(1.02);
-      ">
-        <!-- Most Popular Badge -->
-        <div style="
-          position: absolute;
-          top: -12px;
-          right: 20px;
-          background: var(--price-standard);
-          color: white;
-          padding: 4px 16px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-          z-index: 5;
-        ">⭐ Most Popular</div>
-        
-        <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
-          <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🚀</span>
-          <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Premium</h3>
-          <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Pour professionnels</p>
-        </div>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <div class="package-price" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <span class="current-price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">700 MAD</span>
-            <span style="font-size: 1rem; color: var(--text-light);">/mois</span>
-          </div>
-          <div class="loyalty-price" style="display: none; margin-top: 8px;">
-            <span style="text-decoration: line-through; color: var(--text-light); font-size: 1rem;">700 MAD</span>
-            <span style="color: var(--wa-green); font-weight: 700; margin-left: 6px;">→ 630 MAD</span>
-          </div>
-          <div class="loyalty-badge" style="
-            display: none;
-            background: var(--wa-green);
+        <!-- PREMIUM+ PACKAGE (AI) -->
+        <div class="package-card reveal reveal-delay-2" style="
+          background: linear-gradient(135deg, #f8fdff, #f0f9ff);
+          border: 2px solid var(--accent);
+        ">
+          <!-- AI Badge -->
+          <div style="
+            position: absolute;
+            top: 12px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--accent), #27ae60);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            padding: 4px 50px;
+            font-size: 0.7rem;
             font-weight: 700;
-            margin: 10px auto 0;
-            width: fit-content;
-          ">💚 -10% Client fidèle</div>
-        </div>
-        
-        <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; font-size: 0.9rem; color: var(--text-light);">
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ <strong>Tout le pack Beginner</strong></li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Excel avancé (macros, tableaux croisés)</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ PowerPoint pro (animations, master slides)</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Word expert (publipostage, styles)</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Certification MOS préparée</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--text-light); opacity: 0.7;">✗ Pas d'intégration IA</li>
-        </ul>
-        
-        <a href="#" class="package-btn primary" data-package="Premium" style="
-          display: block;
-          width: 100%;
-          padding: 14px;
-          background: var(--price-standard);
-          color: white;
-          border-radius: 50px;
-          font-weight: 700;
-          text-decoration: none;
-          text-align: center;
-          transition: var(--transition);
-          border: none;
-          font-size: 1.05rem;
-        ">Choisir ce pack</a>
-        
-        <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
-          💡 Idéal pour : Employés, managers, entrepreneurs
-        </p>
-      </div>
-
-      <!-- PREMIUM+ PACKAGE (AI) -->
-      <div class="package-card reveal reveal-delay-2" style="
-        background: linear-gradient(135deg, #f8fdff, #f0f9ff);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border: 2px solid var(--accent);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-      ">
-        <!-- AI Badge -->
-        <div style="
-          position: absolute;
-          top: 12px;
-          right: -35px;
-          background: linear-gradient(135deg, var(--accent), #27ae60);
-          color: white;
-          padding: 4px 50px;
-          font-size: 0.7rem;
-          font-weight: 700;
-          transform: rotate(45deg);
-          z-index: 5;
-          letter-spacing: 0.5px;
-        ">🤖 + AI</div>
-        
-        <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
-          <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🤖✨</span>
-          <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Premium+</h3>
-          <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Bureautique + IA</p>
-        </div>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <div class="package-price" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <span class="current-price" style="font-size: 1.8rem; font-weight: 800; color: var(--accent);">300 MAD</span>
-            <span style="font-size: 1rem; color: var(--text-light);">/heure</span>
+            transform: rotate(45deg);
+            z-index: 5;
+            letter-spacing: 0.5px;
+          ">🤖 + AI</div>
+          
+          <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🤖✨</span>
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Premium+</h3>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Bureautique + IA</p>
           </div>
-          <div class="loyalty-price" style="display: none; margin-top: 8px;">
-            <span style="text-decoration: line-through; color: var(--text-light); font-size: 1rem;">300 MAD/h</span>
-            <span style="color: var(--wa-green); font-weight: 700; margin-left: 6px;">→ 270 MAD/h</span>
+          
+          <div style="text-align: center; margin: 20px 0;">
+            <div class="package-price" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+              <span class="current-price" style="font-size: 1.8rem; font-weight: 800; color: var(--accent);">300 MAD</span>
+              <span style="font-size: 1rem; color: var(--text-light);">/heure</span>
+            </div>
+            <div class="loyalty-price">
+              <span style="text-decoration: line-through; color: var(--text-light); font-size: 1rem;">300 MAD/h</span>
+              <span style="color: var(--wa-green); font-weight: 700; margin-left: 6px;">→ 270 MAD/h</span>
+            </div>
+            <div class="loyalty-badge">💚 -10% Client fidèle</div>
           </div>
-          <div class="loyalty-badge" style="
-            display: none;
-            background: var(--wa-green);
+          
+          <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; font-size: 0.9rem; color: var(--text-light);">
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ <strong>Tout le pack Premium</strong></li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 500;">🤖 <strong>IA Tools Integration</strong></li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-left: 20px;">• ChatGPT pour rédaction & synthèse</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-left: 20px;">• Copilot dans Office 365</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-left: 20px;">• Automatisation avec Make/Zapier</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Coaching personnalisé 1:1</li>
+            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Accès communauté privée</li>
+          </ul>
+          
+          <a href="#" class="package-btn" data-package="Premium+" style="
+            background: linear-gradient(135deg, var(--accent), #27ae60);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin: 10px auto 0;
-            width: fit-content;
-          ">💚 -10% Client fidèle</div>
+            border: none;
+          ">Réserver une session</a>
+          
+          <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
+            💡 Idéal pour : Consultants, freelances, tech-early adopters
+          </p>
         </div>
-        
-        <ul style="list-style: none; padding: 0; margin: 20px 0; text-align: left; font-size: 0.9rem; color: var(--text-light);">
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ <strong>Tout le pack Premium</strong></li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 500;">🤖 <strong>IA Tools Integration</strong></li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-left: 20px;">• ChatGPT pour rédaction & synthèse</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-left: 20px;">• Copilot dans Office 365</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-left: 20px;">• Automatisation avec Make/Zapier</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Coaching personnalisé 1:1</li>
-          <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">✓ Accès communauté privée</li>
-        </ul>
-        
-        <a href="#" class="package-btn" data-package="Premium+" style="
-          display: block;
-          width: 100%;
-          padding: 12px;
-          background: linear-gradient(135deg, var(--accent), #27ae60);
-          color: white;
-          border-radius: 50px;
-          font-weight: 600;
-          text-decoration: none;
-          text-align: center;
-          transition: var(--transition);
-          border: none;
-        ">Réserver une session</a>
-        
-        <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
-          💡 Idéal pour : Consultants, freelances, tech-early adopters
-        </p>
+
+        <!-- CUSTOMIZED PACKAGE -->
+        <div class="package-card reveal reveal-delay-3" style="
+          border: 2px dashed var(--secondary);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-height: 100%;
+        ">
+          <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🎯</span>
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Customized</h3>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Sur mesure</p>
+          </div>
+          
+          <div style="text-align: center; margin: 20px 0; flex-grow: 1;">
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark); margin: 16px 0;">
+              Votre programme, vos objectifs
+            </p>
+            <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.6;">
+              Nous créons un parcours de formation 100% adapté à :<br><br>
+              • Votre niveau actuel<br>
+              • Vos objectifs professionnels<br>
+              • Votre secteur d'activité<br>
+              • Votre emploi du temps
+            </p>
+          </div>
+          
+          <a href="#" class="package-btn outline" data-package="Customized">Discuter mon projet</a>
+          
+          <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
+            💡 Idéal pour : Entreprises, équipes, projets spécifiques
+          </p>
+        </div>
+
       </div>
 
-      <!-- CUSTOMIZED PACKAGE -->
-      <div class="package-card reveal reveal-delay-3" style="
-        background: white;
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border: 2px dashed var(--secondary);
-        transition: var(--transition);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 100%;
-      ">
-        <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px solid var(--border); margin-bottom: 20px;">
-          <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🎯</span>
-          <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0;">Customized</h3>
-          <p style="font-size: 0.85rem; color: var(--text-light); margin: 4px 0 0;">Sur mesure</p>
+      <!-- Comparison Table (Desktop) -->
+      <div class="comparison-table">
+        <h3 style="text-align: center; margin-bottom: 24px; color: var(--dark);">📊 Comparatif des packages</h3>
+        
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border);">
+              <th style="padding: 12px; text-align: left; color: var(--dark);">Fonctionnalité</th>
+              <th style="padding: 12px; text-align: center; color: var(--primary);">Beginner</th>
+              <th style="padding: 12px; text-align: center; color: var(--price-standard);">Premium</th>
+              <th style="padding: 12px; text-align: center; color: var(--accent);">Premium+</th>
+              <th style="padding: 12px; text-align: center; color: var(--secondary);">Custom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 12px; font-weight: 500;">MOS (Word/Excel/PPT)</td>
+              <td style="text-align: center;">✓</td>
+              <td style="text-align: center; color: var(--price-standard); font-weight: 600;">✓ Avancé</td>
+              <td style="text-align: center; color: var(--accent); font-weight: 600;">✓ Expert</td>
+              <td style="text-align: center;">✓ Sur mesure</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
+              <td style="padding: 12px; font-weight: 500;">Certification MOS</td>
+              <td style="text-align: center; color: var(--text-light);">✗</td>
+              <td style="text-align: center; color: var(--price-standard);">✓ Préparée</td>
+              <td style="text-align: center; color: var(--accent);">✓ + Coaching</td>
+              <td style="text-align: center;">✓ Option</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 12px; font-weight: 500;">IA Tools Integration</td>
+              <td style="text-align: center; color: var(--text-light);">✗</td>
+              <td style="text-align: center; color: var(--text-light);">✗</td>
+              <td style="text-align: center; color: var(--accent); font-weight: 600;">✓ Complet</td>
+              <td style="text-align: center;">✓ Sur demande</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
+              <td style="padding: 12px; font-weight: 500;">Support 1:1</td>
+              <td style="text-align: center;">WhatsApp</td>
+              <td style="text-align: center;">Prioritaire</td>
+              <td style="text-align: center; color: var(--accent);">Coaching inclus</td>
+              <td style="text-align: center;">✓ Illimité</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 12px; font-weight: 500;">Prix</td>
+              <td style="text-align: center; font-weight: 600;">500 MAD/mois</td>
+              <td style="text-align: center; font-weight: 600; color: var(--price-standard);">700 MAD/mois</td>
+              <td style="text-align: center; font-weight: 600; color: var(--accent);">300 MAD/heure</td>
+              <td style="text-align: center; color: var(--secondary);">Devis gratuit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div style="margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h3 style="text-align: center; margin-bottom: 24px; color: var(--dark);">❓ Questions fréquentes</h3>
+        
+        <div class="faq-item" style="margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+          <button class="faq-question" style="
+            width: 100%;
+            padding: 16px 20px;
+            background: white;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+          ">
+            <span>Comment fonctionne la réduction fidélité -10% ?</span>
+            <span class="faq-icon" style="font-size: 1.2rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--bg);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+          ">
+            <p style="padding: 12px 0;">
+              Si vous avez déjà utilisé l'un de mes services (CV, présentations, rapports, etc.), la réduction de 10% s'applique automatiquement lors de votre commande. Il suffit de mentionner votre ancien projet lors du contact WhatsApp, et le prix ajusté vous sera confirmé.
+            </p>
+          </div>
         </div>
         
-        <div style="text-align: center; margin: 20px 0; flex-grow: 1;">
-          <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark); margin: 16px 0;">
-            Votre programme, vos objectifs
-          </p>
-          <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.6;">
-            Nous créons un parcours de formation 100% adapté à :<br><br>
-            • Votre niveau actuel<br>
-            • Vos objectifs professionnels<br>
-            • Votre secteur d'activité<br>
-            • Votre emploi du temps
-          </p>
+        <div class="faq-item" style="margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+          <button class="faq-question" style="
+            width: 100%;
+            padding: 16px 20px;
+            background: white;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+          ">
+            <span>Peut-on changer de pack en cours de formation ?</span>
+            <span class="faq-icon" style="font-size: 1.2rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--bg);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+          ">
+            <p style="padding: 12px 0;">
+              Oui ! Vous pouvez upgrader vers un pack supérieur à tout moment. La différence de prix sera calculée au prorata. Un downgrade est possible sous conditions – contactez-moi pour en discuter.
+            </p>
+          </div>
         </div>
         
-        <a href="#" class="package-btn outline" data-package="Customized" style="
-          display: block;
-          width: 100%;
-          padding: 12px;
-          background: transparent;
-          color: var(--secondary);
-          border-radius: 50px;
-          font-weight: 600;
-          text-decoration: none;
-          text-align: center;
-          transition: var(--transition);
-          border: 2px solid var(--secondary);
-        ">Discuter mon projet</a>
-        
-        <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; font-style: italic;">
-          💡 Idéal pour : Entreprises, équipes, projets spécifiques
-        </p>
+        <div class="faq-item" style="margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+          <button class="faq-question" style="
+            width: 100%;
+            padding: 16px 20px;
+            background: white;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+          ">
+            <span>Comment se déroulent les sessions de formation ?</span>
+            <span class="faq-icon" style="font-size: 1.2rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--bg);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+          ">
+            <p style="padding: 12px 0;">
+              Les formations se font 100% en ligne via Zoom/Google Meet, avec partage d'écran, exercices en direct, et enregistrement des sessions. Vous recevez également tous les supports de cours et ressources en téléchargement.
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>
-
-    <!-- Comparison Table (Desktop) -->
-    <div class="comparison-table" style="
-      margin-top: 60px;
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      overflow-x: auto;
-      display: none;
-    ">
-      @media (min-width: 1024px) {
-        .comparison-table { display: block; }
-      }
-      
-      <h3 style="text-align: center; margin-bottom: 24px; color: var(--dark);">📊 Comparatif des packages</h3>
-      
-      <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-        <thead>
-          <tr style="border-bottom: 2px solid var(--border);">
-            <th style="padding: 12px; text-align: left; color: var(--dark);">Fonctionnalité</th>
-            <th style="padding: 12px; text-align: center; color: var(--primary);">Beginner</th>
-            <th style="padding: 12px; text-align: center; color: var(--price-standard);">Premium</th>
-            <th style="padding: 12px; text-align: center; color: var(--accent);">Premium+</th>
-            <th style="padding: 12px; text-align: center; color: var(--secondary);">Custom</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 12px; font-weight: 500;">MOS (Word/Excel/PPT)</td>
-            <td style="text-align: center;">✓</td>
-            <td style="text-align: center; color: var(--price-standard); font-weight: 600;">✓ Avancé</td>
-            <td style="text-align: center; color: var(--accent); font-weight: 600;">✓ Expert</td>
-            <td style="text-align: center;">✓ Sur mesure</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
-            <td style="padding: 12px; font-weight: 500;">Certification MOS</td>
-            <td style="text-align: center; color: var(--text-light);">✗</td>
-            <td style="text-align: center; color: var(--price-standard);">✓ Préparée</td>
-            <td style="text-align: center; color: var(--accent);">✓ + Coaching</td>
-            <td style="text-align: center;">✓ Option</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 12px; font-weight: 500;">IA Tools Integration</td>
-            <td style="text-align: center; color: var(--text-light);">✗</td>
-            <td style="text-align: center; color: var(--text-light);">✗</td>
-            <td style="text-align: center; color: var(--accent); font-weight: 600;">✓ Complet</td>
-            <td style="text-align: center;">✓ Sur demande</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
-            <td style="padding: 12px; font-weight: 500;">Support 1:1</td>
-            <td style="text-align: center;">WhatsApp</td>
-            <td style="text-align: center;">Prioritaire</td>
-            <td style="text-align: center; color: var(--accent);">Coaching inclus</td>
-            <td style="text-align: center;">✓ Illimité</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 12px; font-weight: 500;">Prix</td>
-            <td style="text-align: center; font-weight: 600;">500 MAD/mois</td>
-            <td style="text-align: center; font-weight: 600; color: var(--price-standard);">700 MAD/mois</td>
-            <td style="text-align: center; font-weight: 600; color: var(--accent);">300 MAD/heure</td>
-            <td style="text-align: center; color: var(--secondary);">Devis gratuit</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- FAQ Accordion -->
-    <div style="margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
-      <h3 style="text-align: center; margin-bottom: 24px; color: var(--dark);">❓ Questions fréquentes</h3>
-      
-      <div class="faq-item" style="margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-        <button class="faq-question" style="
-          width: 100%;
-          padding: 16px 20px;
-          background: white;
-          border: none;
-          text-align: left;
-          font-weight: 600;
-          color: var(--dark);
-          cursor: pointer;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.95rem;
-        ">
-          <span>Comment fonctionne la réduction fidélité -10% ?</span>
-          <span class="faq-icon" style="font-size: 1.2rem; transition: transform 0.3s;">+</span>
-        </button>
-        <div class="faq-answer" style="
-          padding: 0 20px;
-          max-height: 0;
-          overflow: hidden;
-          transition: all 0.3s ease;
-          background: var(--bg);
-          font-size: 0.9rem;
-          color: var(--text-light);
-          line-height: 1.6;
-        ">
-          <p style="padding: 12px 0;">
-            Si vous avez déjà utilisé l'un de mes services (CV, présentations, rapports, etc.), la réduction de 10% s'applique automatiquement lors de votre commande. Il suffit de mentionner votre ancien projet lors du contact WhatsApp, et le prix ajusté vous sera confirmé.
-          </p>
-        </div>
-      </div>
-      
-      <div class="faq-item" style="margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-        <button class="faq-question" style="
-          width: 100%;
-          padding: 16px 20px;
-          background: white;
-          border: none;
-          text-align: left;
-          font-weight: 600;
-          color: var(--dark);
-          cursor: pointer;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.95rem;
-        ">
-          <span>Peut-on changer de pack en cours de formation ?</span>
-          <span class="faq-icon" style="font-size: 1.2rem; transition: transform 0.3s;">+</span>
-        </button>
-        <div class="faq-answer" style="
-          padding: 0 20px;
-          max-height: 0;
-          overflow: hidden;
-          transition: all 0.3s ease;
-          background: var(--bg);
-          font-size: 0.9rem;
-          color: var(--text-light);
-          line-height: 1.6;
-        ">
-          <p style="padding: 12px 0;">
-            Oui ! Vous pouvez upgrader vers un pack supérieur à tout moment. La différence de prix sera calculée au prorata. Un downgrade est possible sous conditions – contactez-moi pour en discuter.
-          </p>
-        </div>
-      </div>
-      
-      <div class="faq-item" style="margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-        <button class="faq-question" style="
-          width: 100%;
-          padding: 16px 20px;
-          background: white;
-          border: none;
-          text-align: left;
-          font-weight: 600;
-          color: var(--dark);
-          cursor: pointer;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.95rem;
-        ">
-          <span>Comment se déroulent les sessions de formation ?</span>
-          <span class="faq-icon" style="font-size: 1.2rem; transition: transform 0.3s;">+</span>
-        </button>
-        <div class="faq-answer" style="
-          padding: 0 20px;
-          max-height: 0;
-          overflow: hidden;
-          transition: all 0.3s ease;
-          background: var(--bg);
-          font-size: 0.9rem;
-          color: var(--text-light);
-          line-height: 1.6;
-        ">
-          <p style="padding: 12px 0;">
-            Les formations se font 100% en ligne via Zoom/Google Meet, avec partage d'écran, exercices en direct, et enregistrement des sessions. Vous recevez également tous les supports de cours et ressources en téléchargement.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- ===========================
        HOW IT WORKS
@@ -2738,7 +2713,7 @@
           <div class="step-icon">💻</div>
           <div class="step-title">Kankhdm 3la Talab Dyalk</div>
           <div class="step-desc">
-            Kan9adlik travail dyalk kima bghity – design pro, n9i w Nady – katwsslek notification bli travail daylk wajed (Photos + Video), katdwez lia vierement banquaire🪙💳, wkaywwslek travail dyalk nadi canadi 👌🏻😉
+            Kan9adlik travail dyalk kima bghity – design pro, n9i w Nady – katwsslek notification bli travail daylk wajed (Photos + Video), katdwez lia vierement banquaire🪙💳, wkaywwslek travail dyalk nadi canadi 👌😉
           </div>
         </div>
 
@@ -3175,119 +3150,107 @@
     });
 
     // ============================
+    // LOYALTY DISCOUNT SYSTEM
+    // ============================
+    function checkLoyaltyStatus() {
+      // Check localStorage for returning client flag
+      const isReturningClient = localStorage.getItem('ibtihal_returning_client') === 'true';
+      
+      if (isReturningClient) {
+        // Show loyalty banner
+        document.getElementById('loyalty-banner').classList.add('show');
+        
+        // Show discounted prices and badges on all packages
+        document.querySelectorAll('.loyalty-price').forEach(el => {
+          el.classList.add('show');
+        });
+        document.querySelectorAll('.loyalty-badge').forEach(el => {
+          el.classList.add('show');
+        });
+        
+        // Update WhatsApp links with loyalty note
+        document.querySelectorAll('.package-btn[data-package]').forEach(btn => {
+          btn.setAttribute('data-loyalty', 'true');
+        });
+      }
+    }
+    
+    // ============================
+    // FAQ ACCORDION
+    // ============================
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        
+        // Toggle current
+        answer.classList.toggle('active');
+        icon.classList.toggle('active');
+        
+        // Close others
+        document.querySelectorAll('.faq-answer').forEach(other => {
+          if (other !== answer) {
+            other.classList.remove('active');
+            other.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
+          }
+        });
+      });
+    });
+    
+    // ============================
+    // PACKAGE BUTTON HANDLERS
+    // ============================
+    document.querySelectorAll('.package-btn[data-package]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const packageName = btn.getAttribute('data-package');
+        const isLoyalty = btn.getAttribute('data-loyalty') === 'true';
+        
+        // Build WhatsApp message
+        let message = `Salam! Je suis intéressé(e) par la formation "Bureautique Complet + AI" - Pack ${packageName}`;
+        
+        if (isLoyalty) {
+          message += ` 🎁 (Client fidèle - réduction -10% appliquée)`;
+        }
+        
+        message += ` Pouvez-vous me donner plus de détails ?`;
+        
+        // Open WhatsApp
+        const phone = "212703920799"; // Your number
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+      });
+    });
+
+    // ============================
     // INIT
     // ============================
     document.addEventListener('DOMContentLoaded', () => {
       bindWaButtons();
+      checkLoyaltyStatus();
+      
+      // Reveal animations for packages
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.package-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+      });
+      
+      // Uncomment to test loyalty system:
+      // localStorage.setItem('ibtihal_returning_client', 'true');
     });
   </script>
-  <script>
-  // ============================
-  // LOYALTY DISCOUNT SYSTEM
-  // ============================
-  function checkLoyaltyStatus() {
-    // Check localStorage for returning client flag
-    // In production, this would connect to your backend
-    const isReturningClient = localStorage.getItem('ibtihal_returning_client') === 'true';
-    
-    if (isReturningClient) {
-      // Show loyalty banner
-      document.getElementById('loyalty-banner').classList.add('show');
-      
-      // Show discounted prices and badges on all packages
-      document.querySelectorAll('.loyalty-price').forEach(el => {
-        el.classList.add('show');
-      });
-      document.querySelectorAll('.loyalty-badge').forEach(el => {
-        el.classList.add('show');
-      });
-      
-      // Update WhatsApp links with loyalty note
-      document.querySelectorAll('.package-btn[data-package]').forEach(btn => {
-        const pkg = btn.getAttribute('data-package');
-        btn.setAttribute('data-loyalty', 'true');
-      });
-    }
-  }
-  
-  // ============================
-  // FAQ ACCORDION
-  // ============================
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const answer = button.nextElementSibling;
-      const icon = button.querySelector('.faq-icon');
-      
-      // Toggle current
-      answer.classList.toggle('active');
-      icon.classList.toggle('active');
-      
-      // Close others
-      document.querySelectorAll('.faq-answer').forEach(other => {
-        if (other !== answer) {
-          other.classList.remove('active');
-          other.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
-        }
-      });
-    });
-  });
-  
-  // ============================
-  // PACKAGE BUTTON HANDLERS
-  // ============================
-  document.querySelectorAll('.package-btn[data-package]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      
-      const packageName = btn.getAttribute('data-package');
-      const isLoyalty = btn.getAttribute('data-loyalty') === 'true';
-      
-      // Build WhatsApp message
-      let message = `Salam! Je suis intéressé(e) par la formation "Bureautique Complet + AI" - Pack ${packageName}`;
-      
-      if (isLoyalty) {
-        message += ` 🎁 (Client fidèle - réduction -10% appliquée)`;
-      }
-      
-      message += ` Pouvez-vous me donner plus de détails ?`;
-      
-      // Open WhatsApp
-      const phone = "212703920799"; // Your number
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    });
-  });
-  
-  // ============================
-  // SIMULATE RETURNING CLIENT (FOR TESTING)
-  // ============================
-  // Uncomment the line below to test the loyalty system:
-  // localStorage.setItem('ibtihal_returning_client', 'true');
-  
-  // ============================
-  // INIT
-  // ============================
-  document.addEventListener('DOMContentLoaded', () => {
-    checkLoyaltyStatus();
-    
-    // Reveal animations for packages
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.package-card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(card);
-    });
-  });
-</script>
 
 </body>
 </html>
